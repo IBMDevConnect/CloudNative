@@ -57,3 +57,5 @@ At the bottom, click on the URL **View the Application At**
 If the application is successfully deployed, you should get the below output
 
 ![Cloud Login](images/output.png)
+
+**Congratulations on successfully building and deploying application on IBM Cloud**
