@@ -58,4 +58,42 @@ If the application is successfully deployed, you should get the below output
 
 ![Cloud Login](images/output.png)
 
+Let us make some changes in the code and redeploy our application. For making changes in the code, please follow the below steps
+
+Click on the name of the application from the App details page as shown below
+
+![Cloud Login](images/appinfo.png)
+
+Select the Eclipse Orion Web IDE tile to edit the code
+
+![Cloud Login](images/codeide.png)
+
+Open the index.html file and edit the code
+
+![Cloud Login](images/code.png)
+
+Once the code changes are done, select the Git icon from the left navigation
+
+![Cloud Login](images/Git.png)
+
+Enter the commit message and click on **commit**. Post commit is done, click on **sync**
+
+![Cloud Login](images/commit.png)
+
+The Delivery Pipeline gets triggered and initially we will see the Build stage running again
+
+![Cloud Login](images/build.png)
+
+Once the Build, Containerize, Deploy stages have completed running, we can access the newly deployed application by clicking on **View logs and history**
+
+![Cloud Login](images/ninth.png)
+
+At the bottom, click on the URL **View the Application At**  
+
+![Cloud Login](images/tenth.png)
+
+If the application is successfully deployed, you should get the below output
+
+![Cloud Login](images/changeoutput.png)
+
 **Congratulations on successfully building and deploying application on IBM Cloud**
