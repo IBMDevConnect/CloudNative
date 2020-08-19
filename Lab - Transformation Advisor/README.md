@@ -1,7 +1,7 @@
 # Transform your traditional on-premises app and deploy it as a containerized app on a public cloud
 **Modernize Apps using IBM Transformation Advisor on IBM Cloud Pak for Applications on the IBM managed OpenShift cluster**
 
-In this code pattern, we will use Transformation Advisor on IBM Cloud Pak for Applications to evaluate an on-premises traditional WebSphere application. We'll use Transformation Advisor, download the generated migration bundle and use its recommendations to deploy that app in a Liberty container running on IBM Cloud Pak for Applications running on the IBM managed OpenShift. 
+In this code pattern, we will use Transformation Advisor on IBM Cloud Pak for Applications to evaluate an on-premises traditional WebSphere application. We'll use Transformation Advisor, download the generated migration bundle and use its recommendations to deploy that app in a Liberty container running on IBM Cloud Pak for Applications running on the IBM managed OpenShift.
 
 A sample web app is provided to demonstrate migration from on-premises to the IBM Cloud Pak for Applications.
 
@@ -30,7 +30,7 @@ When the reader has completed this code pattern, they will understand how to:
 
 ## Pre-requisites
 
-* [IBM Cloud account](https://cloud.ibm.com/) 
+* [IBM Cloud account](https://cloud.ibm.com/)
 * [IBM managed OpenShift Cluster instance](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift&bss_account=46816354d9cb773bae86c226aa74c8cc&ims_account=2001776)
 * [OpenShift CLI](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli)
 * [Docker](https://www.docker.com/)
@@ -47,7 +47,7 @@ When the reader has completed this code pattern, they will understand how to:
 
 ## 1. Install IBM Cloud Pak for Applications
 
-Please refer to this [video](https://www.youtube.com/watch?v=gBI0ApHUFSs) to install IBM Cloud Pak for Applications on the IBM managed OpenShift cluster. 
+Please refer to this [video](https://www.youtube.com/watch?v=gBI0ApHUFSs) to install IBM Cloud Pak for Applications on the IBM managed OpenShift cluster.
 
 If in case you are not working on IBM managed OpenShift cluster, then refer this [link](https://www.ibm.com/support/knowledgecenter/SSCSJL_4.1.x/install-icpa-cli.html) to install IBM Cloud Pak for Applications.
 
@@ -57,7 +57,7 @@ As part of IBM Cloud Pak for Applications, Transformation Advisor is a tool that
 
 * Select the project `cp4a` on the Openshift console, and open `Cloud Pak for Applications`.
  ![open_cloudpak](doc/source/images/open_cloudpak.png)
- 
+
 * Open `Transformation Advisor`
   ![open_ta](doc/source/images/open_ta.png)
 
@@ -193,7 +193,7 @@ Select `View migration plan` for the Application you wish to migrate.
 
 Transformation Advisor will automatically generate the artifacts you need to get your application deployed and running in a Liberty container on OpenShift Cluster, including...
 
-* server.xml 
+* server.xml
 * pom.xml
 * Dockerfile
 * Operator Resources
@@ -248,39 +248,39 @@ If you have pushed your migration bundle into Github repo, then you got directly
 ### Build the image and deploy
 
 Go to the `migrated_app` folder that has the complete migration bundle. Run the below commands:
-   
+
    ```
       $ ls
         Dockerfile	docs		pom.xml		target README.md	operator	src
       # Build the image
       $ oc new-build . --strategy=docker  --name service-a-openliberty-istio --name=modapp
    ```
-    
+
  ***Deploy the app using the image created***
- 
+
  Run the following commands to create an application using the image and to expose it as a service.
- 
+
  ```
    $ oc new-app --image-stream=<image_name>:<image_tag> --name=modapp
    $ oc expose svc/modapp
-   
+
    # Verify the pods and services
    $ oc get pods       ## it will show a pod running with modapp-openshift-** name
    $ oc get services   ## it will show a service running with modapp-openshift name
  ```
  After this, jump to section *Access the migrated app*.
- 
+
  ### Deploy the app using Github repo
- 
+
  Run the following commands to create an application using the Github repository and to expose it as a service.
- 
+
  ```
    $ oc new-app <github-repo-url> --name=modapp  ## wait for this command to complete
-   
-   $ oc status ## to check whether the status of the previous command 
-   
-   $ oc expose svc/modapp  ## this command exposes service after creating app 
-   
+
+   $ oc status ## to check whether the status of the previous command
+
+   $ oc expose svc/modapp  ## this command exposes service after creating app
+
    # Verify the pods and services
    $ oc get pods       ## it will show a pod running with modapp-openshift-** name
    $ oc get services   ## it will show a service running with modapp-openshift name
@@ -289,13 +289,13 @@ Go to the `migrated_app` folder that has the complete migration bundle. Run the 
 ### Access the migrated app
 
    To access the migrated app on OpenShift, get the URL of the app from OpenShift web console.
-   
+
    `OpenShift Web Console > <Go to your project> > Overview`
    ![url](doc/source/images/url.png)
-   
+
    Open the noted url by adding the "/resorts" context path to see the below page:
    ![resorts](doc/source/images/resorts.png)
-   
+
 
 ## Learn More
 
@@ -310,5 +310,3 @@ Go to the `migrated_app` folder that has the complete migration bundle. Run the 
 This code pattern is licensed under the Apache Software License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
-
-
