@@ -1,4 +1,4 @@
-# Lab 4 - Deploying to OpenShift
+# Deploying to OpenShift
 
 ## Overview / Background
 
