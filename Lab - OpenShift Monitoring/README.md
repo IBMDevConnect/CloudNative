@@ -237,6 +237,23 @@ Select your namespace and monitor the Details
 
 ![DashboardAccess](images/monitor.png)
 
+### Prometheus and Alert Manager
+
+Navigating back to the cluster console, you can also launch:
+
+- Prometheus -  a monitoring system with an efficient time series database
+- Alertmanager - - an extension of Prometheus focused on managing alerts
+
+ ![DashboardAccess](images/monitoring-dashboard4.png)
+
+### Prometheus
+
+ ![DashboardAccess](images/prometheus-time-series4.png)
+
+### Alertmanager
+
+![DashboardAccess](images/alert-manager4.png)
+
 ### Conclusion
 
 You have successfully completed this lab! Let’s take a look at what you learned and did today:
