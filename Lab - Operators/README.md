@@ -12,7 +12,7 @@ Next **_login_** with your IBM Cloud login you created. After login you will be 
 
 ![IBM Cloud Dashboard](images/IBM_Cloud_Dashboard.png)
 
-#### Step 1. Find the community operator
+### Step 1. Find the community operator
 
 Begin by switching to the administrator mode in OpenShift and browse to the OperatorHub. In the navigation, expand **Operators** and select **OperatorHub**:
 
