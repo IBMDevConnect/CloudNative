@@ -48,6 +48,35 @@ Here you can select the size of the volume assigned to the database, as well as 
 
 ![Cloud Login](images/pg-openshift-operator-6c-dev.png)
 
+Here is the new database that was created through the operator. The databases CRD is now a Kubernetes native object that you can query through oc.
 
+To verify the database run the below commands
 
-**Congratulations on successfully building and deploying application on IBM Cloud**
+```
+oc project your_project_name
+
+oc get pods
+
+oc get databases
+```
+
+Not only does the operator instantiate the database instance — it also creates a PersistentVolumeClaim for database storage.
+
+### Step 4. Connect to the database
+
+Expose the service with oc expose to allow access from outside the cluster through an external IP. Note that OpenShift routes only support HTTP/HTTPS traffic, so you can’t use them to connect to the PostgreSQL instance:
+
+```
+oc expose deploy creditdb --port=5432 --target-port=5432 --type=LoadBalancer --name my-pg-svc
+
+oc get svc
+```
+Now you can access the database from outside the cluster using the external IP previously described.
+
+After the database is in production, you can delete the LoadBalancer. Deleting the LoadBalancer eliminates external access to the database and only allows services to connect to the database through an internal cluster IP or service.
+
+### Summary
+
+The OpenShift OperatorHub provides an “app store” kind of experience for finding and installing services into your OpenShift cluster. The OLM service and its command-line interface help you manage and keep your operators updated.
+
+You can go to OperatorHub in your OpenShift 4.3 cluster to discover other services available to install in your cluster, or see [operatorhub.io](https://operatorhub.io/) for a larger list of operators that you can install manually.
