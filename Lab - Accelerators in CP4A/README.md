@@ -1,6 +1,6 @@
 # Accelerator for Cloud-native Apps in IBM Cloud Pak for Applications
 
-IBM Cloud Pak for Applications helps you modernize existing applications and develop new cloud-native applications that can quickly deliver value. This lab demonstrates the Accelerators for Teams feature of IBM Cloud Pak for Applications by developing a cloud-native application and deploying it on Red Hat OpenShift using CI/CD features.
+**IBM Cloud Pak for Applications helps you modernize existing applications and develop new cloud-native applications that can quickly deliver value. This lab demonstrates the Accelerators for Teams feature of IBM Cloud Pak for Applications by developing a cloud-native application and deploying it on Red Hat OpenShift using CI/CD features.**
 
 ### Pre-requisite: Create IBM Cloud Account [IBM Cloud](https://ibm.biz/BdqAuc). Please register with your Organization Email ID.
 

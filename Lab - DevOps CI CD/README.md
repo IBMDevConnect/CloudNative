@@ -1,6 +1,6 @@
 # Build a Tekton Pipeline to deploy a mobile app back end to OpenShift 4
 
-Create an automated Tekton Pipeline to deploy several microservices used to handle data access tasks
+**Create an automated Tekton Pipeline to deploy several microservices used to handle data access tasks**
 
 ### Pre-requisite: Create IBM Cloud Account [IBM Cloud](https://ibm.biz/BdqAuc). Please register with your Organization Email ID.
 
