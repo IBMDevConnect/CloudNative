@@ -193,7 +193,8 @@ php-apache-79544c9bd9-cphmx       1/1     Running       0          78m
 Check the broser again , you will see that you again get guestbook V1 app in your browser
 
 #### Clean up
-Before we continue, let's delete the application so we can learn about a different way to achieve the same results by using resource files instead of providing command line options.
+let's delete the application
+
 To remove the deployment, use:
 
 ``` kubectl delete deployment guestbook```
@@ -203,11 +204,3 @@ To delete the service use
 ```  kubectl delete service guestbook```
 
 We have finished checking scaling and rollout of application
-
-## Clean up
-
-``` kubectl delete deployment php-apache```
-
-``` kubectl delete pod <podname>```
-```kubectl delete svc <service name>```
-```kubectl delete hpa <hpa name>```
