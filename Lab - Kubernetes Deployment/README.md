@@ -32,7 +32,7 @@ You should see similar output O/P:
 ``` console
 $ kubectl get pods
 NAME                          READY     STATUS              RESTARTS   AGE
-guestbook-87b756bd5-5dxsr    0/1       ContainerCreating   0          1m
+guestbook-87b756bd5-5dxsr     0/1       ContainerCreating   0          1m
 ```
 
 It will take some time to get this pod in running state
@@ -44,10 +44,11 @@ guestbook-87b756bd5-5dxsr         1/1     Running   0          112m
 #### Step 3) Expose the application
 Once the status reads Running, we need to expose that deployment as a Service so that it can be accessed from outside. By specifying a service type of NodePort, the service will also be mapped to a high-numbered port on each cluster node. The guestbook application listens on port 3000, so this is also specified in the command.
 
-Run:
-```kubectl expose deployment guestbook --type="NodePort" --port=3000 --external-ip="172.17.0.26"```
+```kubectl expose deployment guestbook --type="NodePort" --port=3000 --external-ip="Give the host0 IP value "```
 
-O/P:
+You can get the external ip value from the Katacoda environment by clicking on the settings from the top right and then click on Debug.
+
+Example:
 ``` console
 $ kubectl expose deployment guestbook --type="NodePort" --port=3000 --external-ip="172.17.0.26"
 service "guestbook" exposed
@@ -61,14 +62,15 @@ NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 guestbook    NodePort    172.21.156.20    <none>        3000:30298/TCP   101m
 ```
 
-Guestbook application is exposed at port 30298 on public ip of cluster
+Guestbook application is exposed at port 30298(for example) on public ip of cluster
 
 #### Step 4) Access the guestbook app
 
-Access the page as
-```http://<publicip>:<Nodeport_port>```
+You can run the curl command to access the code of the guestbook application.
 
-eg: http://184.173.1.140:30298/
+```curl http://<external-ip>:<Nodeport_port>```
+
+eg: curl http://184.173.1.140:30298/
 
 
 ### Scale the application
@@ -87,18 +89,18 @@ deployment "guestbook" scaled
  Kubernetes will now try to match the desired state of 10 replicas by starting 9 new pods with the same configuration
 as the first.
 
-  ```console
-   $ kubectl rollout status deployment guestbook
-	Waiting for rollout to finish: 1 of 10 updated replicas are available...
-	Waiting for rollout to finish: 2 of 10 updated replicas are available...
-	Waiting for rollout to finish: 3 of 10 updated replicas are available...
-	Waiting for rollout to finish: 4 of 10 updated replicas are available...
-	Waiting for rollout to finish: 5 of 10 updated replicas are available...
-	Waiting for rollout to finish: 6 of 10 updated replicas are available...
-	Waiting for rollout to finish: 7 of 10 updated replicas are available...
-	Waiting for rollout to finish: 8 of 10 updated replicas are available...
-	Waiting for rollout to finish: 9 of 10 updated replicas are available...
-	deployment "guestbook" successfully rolled out
+```console
+$ kubectl rollout status deployment guestbook
+Waiting for rollout to finish: 1 of 10 updated replicas are available...
+Waiting for rollout to finish: 2 of 10 updated replicas are available...
+Waiting for rollout to finish: 3 of 10 updated replicas are available...
+Waiting for rollout to finish: 4 of 10 updated replicas are available...
+Waiting for rollout to finish: 5 of 10 updated replicas are available...
+Waiting for rollout to finish: 6 of 10 updated replicas are available...
+Waiting for rollout to finish: 7 of 10 updated replicas are available...
+Waiting for rollout to finish: 8 of 10 updated replicas are available...
+Waiting for rollout to finish: 9 of 10 updated replicas are available...
+deployment "guestbook" successfully rolled out
    ```
 
 ``` console
@@ -145,7 +147,7 @@ Check Rollout status using command
 $  kubectl rollout status deployment/guestbook
 deployment "guestbook" successfully rolled out
 ```
-Step 2) Test the application as before, by accessing ```http://<public-IP>:<nodeport>```(use the same as the previous lab) in the incognito mode of your browser to confirm your new code is active.
+Step 2) Test the application as before, by accessing ```http://<public-IP>:<nodeport>``` and running the curl command to confirm your new code is active with version v2 in the code.
 
 
 #### Rollback your application
@@ -155,7 +157,7 @@ Use command "undo" to rollback the deplyment at previous version
 
 O/P:
 ``` console
- kubectl rollout undo deployment guestbook
+kubectl rollout undo deployment guestbook
 deployment.apps/guestbook rolled back
 ```
 
@@ -190,7 +192,7 @@ logdna-agent-cjhjl                1/1     Running       0          47h
 php-apache-79544c9bd9-cphmx       1/1     Running       0          78m
 ```
 
-Check the broser again , you will see that you again get guestbook V1 app in your browser
+Run the curl command again , you will see that you again get guestbook V1 app.
 
 #### Clean up
 let's delete the application
