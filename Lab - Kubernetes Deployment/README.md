@@ -29,11 +29,12 @@ Check the status of the running application, you can use:
 ```kubectl get pods```
 
 You should see similar output O/P:
-```console
-   $ kubectl get pods
-   NAME                          READY     STATUS              RESTARTS   AGE
-   guestbook-87b756bd5-5dxsr    0/1       ContainerCreating   0          1m
-   ```
+``` console
+$ kubectl get pods
+NAME                          READY     STATUS              RESTARTS   AGE
+guestbook-87b756bd5-5dxsr    0/1       ContainerCreating   0          1m
+```
+
 It will take some time to get this pod in running state
 ``` console
 $ kubectl get pods
@@ -64,36 +65,14 @@ Guestbook application is exposed at port 30298 on public ip of cluster
 
 #### Step 4) Access the guestbook app
 
-Find the public IP of the cluster
-use this command to get public if of your cluster
-
-```ibmcloud ks workers -c <cluster name>```
-
-O/P:
-```console
-$ ibmcloud ks workers -c mycluster
-OK
-ID                                                     Public IP       Private IP      Flavor   State    Status   Zone    Version   
-kube-brgtjnkd0kv0nvd7np4g-mycluster-default-000000dd   184.173.1.140   10.76.195.111   free     normal   Ready    hou02   1.17.6_1527   
-```
-
-You will get public IP os the cluster by checking the worker node tab on cluster home page.
-
-<img src="./Images/publicip.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 5px;" />
-
-
 Access the page as
 ```http://<publicip>:<Nodeport_port>```
 
 eg: http://184.173.1.140:30298/
 
-<img src="./Images/guestbook.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 5px;" />
 
-### 2. Scale the application
+### Scale the application
+
 A replica is a copy of a pod that contains a running service. By having multiple replicas of a pod, you can ensure your deployment has the available resources to handle increasing load on your application.
 
 Step 1) To Scale the guestbook application use command
@@ -108,7 +87,7 @@ deployment "guestbook" scaled
  Kubernetes will now try to match the desired state of 10 replicas by starting 9 new pods with the same configuration
 as the first.
 
-   ```console
+  ```console
    $ kubectl rollout status deployment guestbook
 	Waiting for rollout to finish: 1 of 10 updated replicas are available...
 	Waiting for rollout to finish: 2 of 10 updated replicas are available...
@@ -122,8 +101,8 @@ as the first.
 	deployment "guestbook" successfully rolled out
    ```
 
-   ``` console
-   $ kubectl rollout status deployment guestbook
+``` console
+$ kubectl rollout status deployment guestbook
 deployment "guestbook" successfully rolled out
 ```
 Step 2) Check number of pods running by usig command
@@ -168,11 +147,8 @@ deployment "guestbook" successfully rolled out
 ```
 Step 2) Test the application as before, by accessing ```http://<public-IP>:<nodeport>```(use the same as the previous lab) in the incognito mode of your browser to confirm your new code is active.
 
-<img src="./Images/guestbookv2.png"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 5px;" />
 
-#### Step 3) Rollback your application
+#### Rollback your application
 Use command "undo" to rollback the deplyment at previous version
 
 ```kubectl rollout undo deployment guestbook```
