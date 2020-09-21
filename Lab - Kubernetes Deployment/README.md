@@ -137,14 +137,14 @@ Step 1) Using kubectl, you can now update your deployment to use the v2 image. k
 
 O/P:
 ``` console
- kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2
+$ kubectl set image deployment/guestbook guestbook=ibmcom/guestbook:v2
 deployment.apps/guestbook image updated
 ```
 Check Rollout status using command
 ``` kubectl rollout status deployment/guestbook```
 
 ```console
-$  kubectl rollout status deployment/guestbook
+$ kubectl rollout status deployment/guestbook
 deployment "guestbook" successfully rolled out
 ```
 Step 2) Test the application as before, by accessing ```http://<public-IP>:<nodeport>``` and running the curl command to confirm your new code is active with version v2 in the code.
