@@ -194,6 +194,10 @@ php-apache-79544c9bd9-cphmx       1/1     Running       0          78m
 
 Run the curl command again , you will see that you again get guestbook V1 app.
 
+If these IP’s are exposed, I can use this IP to access this application from external or globally. The application is as below,
+
+![CL Dash Kube](images/guestbook.png)
+
 #### Clean up
 let's delete the application
 
