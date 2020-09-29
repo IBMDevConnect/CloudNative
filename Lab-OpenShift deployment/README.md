@@ -27,7 +27,7 @@ Log in to the [Interactive Learning Portal](https://learn.openshift.com/introduc
 To begin, click on the Console tab on your screen. This will open the web console on your browser.
 You should see a Red Hat OpenShift Container Platform window with Username and Password forms as shown below:
 
-![OCP login page](doc/source/images/pic1.png)
+![OCP login page](images/pic1.png)
 
 Use the crededntials provided by the workshop trainer to login here.
 
