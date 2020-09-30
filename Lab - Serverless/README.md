@@ -2,7 +2,9 @@
 
 In this lab we will learn how to use IBM Visual Recognition service to classify images and how to use IBM Cloud Functions create a serverless action. Finally, we will also learn how to use the API Gateway service to securely expose the serverless function by creating and testing an API Endpoint.
 
-#### Pre-requisite: Create IBM Cloud Account [IBM Cloud](https://cloud.ibm.com/registration). Please register with your Organization Email ID.
+Pre-requisite:
+
+Create IBM Cloud Account [IBM Cloud](https://cloud.ibm.com/registration). Please register with your Organization Email ID.
 
 ## IBM Cloud Login
 
@@ -14,7 +16,7 @@ Next **_login_** with your IBM Cloud login you created. After login you will be 
 
 ![IBM Cloud Dashboard](images/Landingpage.png)
 
-#### Create an IBM Cloud Functions
+### Create an IBM Cloud Functions
 
 From the catalog select the Functions Service
 
