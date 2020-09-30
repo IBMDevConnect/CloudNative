@@ -26,4 +26,4 @@ Begin by clicking on **Start Creating**
 
 ![IBM Cloud Dashboard](images/FuncLandpage.png)
 
-To start execution of the lab, please navigate to [Create, expose, and secure a serverless function as an API](https://developer.ibm.com/tutorials/create-expose-secure-serverless-functions-using-ibm-api-gateways-vr/)
+**To start execution of the lab, please navigate to [Create, expose, and secure a serverless function as an API](https://developer.ibm.com/tutorials/create-expose-secure-serverless-functions-using-ibm-api-gateways-vr/)**
