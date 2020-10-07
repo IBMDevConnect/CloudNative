@@ -19,10 +19,10 @@ Login to this lab [Build Microservices with Docker and Kubernetes](https://www.k
 
 ![Katacoda signup](images/Signup.png)
 
-## 2. Get started
+## 2. Getting started
 
 To get started click on the start scenario button
 
 ![OCP login page](images/Start.png)
 
-**Happy learning!!** 
+**Happy learning!!**
