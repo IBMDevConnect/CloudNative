@@ -11,7 +11,6 @@
 3. Run nodejs server in docker
 4. Run nodejs server in kubernetes
 5. Microservices in Kubernetes
-6. Kubernetes deployment descriptors
 
 ## 1. Login to Katacoda environment
 
